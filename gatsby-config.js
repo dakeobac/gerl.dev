@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: "gerl.dev",
+    author: "@gerl.dev",
   },
   plugins: [
     "gatsby-plugin-sharp",
@@ -12,7 +13,27 @@ module.exports = {
         icon: "src/images/icon.png",
       },
     },
-    "gatsby-plugin-mdx",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts/`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-page-creator",
+      options: {
+        path: `${__dirname}/src/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        defaultLayouts: {
+          default: require.resolve("./src/components/Layout.js"),
+        },
+      },
+    },
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
@@ -30,5 +51,6 @@ module.exports = {
       },
       __key: "pages",
     },
+    `gatsby-theme-material-ui`,
   ],
 };
