@@ -1,11 +1,13 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import React from "react";
+import { Helmet } from "react-helmet";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
-import initialTheme from '../theme';
-import { themeReducer, initialState } from '../../reducers/themeReducer';
-import { DispatchContext } from '../../context/DispatchContext';
+import initialTheme from "../theme";
+import { themeReducer, initialState } from "../../reducers/themeReducer";
+import { DispatchContext } from "../../context/DispatchContext";
+
+import ParticlesEffect from "../../components/Particles";
 
 export default function TopLayout(props) {
   const [state, dispatch] = React.useReducer(themeReducer, initialState);
@@ -16,8 +18,8 @@ export default function TopLayout(props) {
       palette: {
         primary: initialTheme.palette.primary,
         secondary: initialTheme.palette.secondary,
-        type: darkMode ? 'dark' : 'light'
-      }
+        type: darkMode ? "dark" : "light",
+      },
     });
   }, [darkMode]);
 
@@ -41,7 +43,7 @@ export default function TopLayout(props) {
           {props.children}
         </DispatchContext.Provider>
       </ThemeProvider>
+      <ParticlesEffect />
     </React.Fragment>
   );
 }
-

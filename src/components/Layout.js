@@ -1,6 +1,5 @@
 import React from "react";
 import { Paper, Box, Container } from "@material-ui/core";
-import ParticlesEffect from "./Particles";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -16,7 +15,6 @@ function Layout({ children }) {
           <main>{children}</main>
         </Box>
         <Footer />
-        <ParticlesEffect />
       </Container>
     </Paper>
   );
