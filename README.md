@@ -1,8 +1,3 @@
----
-title: Hello, world!
-date: 2019-01-29
----
-
 <div align="center">
   <a href="https://www.gatsbyjs.com" >
     <img
