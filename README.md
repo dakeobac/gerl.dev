@@ -1,48 +1,76 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+---
+title: Hello, world!
+date: 2019-01-29
+---
+
+<div align="center">
+  <a href="https://www.gatsbyjs.com" >
+    <img
+      alt="Gatsby"
+      src="https://www.gatsbyjs.com/Gatsby-Monogram.svg"
+      width="60"
+    />
   </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+   <a href="https://www.material-ui.com">
+    <img
+      alt="Material UI"
+      src="https://material-ui.com/static/logo_raw.svg"
+      width="60"
+    />
+  </a>
+</div>
+<h1 align="center">Gatsby's Material UI starter</h1>
+
+Kick off your project with this boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+This starter provides Material UI, support for MDX, responsive images and a dark theme out of the box.
+
+_Check out my website at [gerl.dev](https://gerl.dev/)._
 
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+    Use the Gatsby CLI to create a new site, specifying the material-ui starter.
 
     ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
+    # create a new Gatsby site using the material-ui starter
+    gatsby new my-material-ui-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
     ```
 
-2.  **Start developing.**
+1.  **Start developing.**
 
     Navigate into your new site’s directory and start it up.
 
     ```shell
-    cd my-gatsby-site/
-    npm run develop
+    cd my-material-ui-starter/
+    gatsby develop
     ```
 
-3.  **Open the code and start customizing!**
+1.  **Open the source code and start editing!**
 
-    Your site is now running at http://localhost:8000!
+    Your site is now running at `http://localhost:8000`!
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
 
-4.  **Learn more**
+    Open the `my-material-ui-starter` directory in your code editor of choice and edit `src/pages/index.mdx`. Save your changes and the browser will update in real time! When making changes to mdx files make sure to refresh the page to see your changes.
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## 🧐 What's inside?
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- **"@material-ui/core"**
+- **"@material-ui/icons"**
+- **"@mdx-js/mdx"**
+- **"@mdx-js/react"**
+- **"gatsby"**
+- **"gatsby-image"**
+- **"gatsby-plugin-manifest"**
+- **"gatsby-plugin-mdx"**
+- **"gatsby-plugin-offline"**
+- **"gatsby-plugin-react-helmet"**
+- **"gatsby-plugin-sharp"**
+- **"gatsby-source-filesystem"**
+- **"gatsby-theme-material-ui"**
+- **"gatsby-transformer-sharp"**
+- **"react"**
+- **"react-dom"**
+- **"react-helmet"**
+- **"react-particles-js"**
