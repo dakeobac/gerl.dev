@@ -5,7 +5,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import { Card, CardContent, CardActions, Typography } from "@material-ui/core";
 import { Button, CardActionArea, Link } from "gatsby-theme-material-ui";
 
-import Layout from "../components/Layout";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,7 +43,7 @@ const BlogPage = () => {
     }
   `);
   return (
-    <Layout>
+    <>
       {data.allMdx.edges.map(({ node }, id) => (
         <Card elevation={3} className={classes.root}>
           <Link to={node.frontmatter.path} component={CardActionArea}>
@@ -71,7 +70,7 @@ const BlogPage = () => {
           </CardActions>
         </Card>
       ))}
-    </Layout>
+    </>
   );
 };
 

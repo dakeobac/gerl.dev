@@ -8,10 +8,10 @@ function Layout({ children }) {
     <Paper square>
       <Container
         maxWidth="sm"
-        style={{ display: "flex", flexDirection: "column" }}
+        style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
       >
-        <Header />
         <Box flexGrow="1">
+          <Header />
           <main>{children}</main>
         </Box>
         <Footer />

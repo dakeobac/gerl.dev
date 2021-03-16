@@ -3,11 +3,12 @@ import { Helmet } from "react-helmet";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
-import initialTheme from "../theme";
-import { themeReducer, initialState } from "../../reducers/themeReducer";
-import { DispatchContext } from "../../context/DispatchContext";
+import initialTheme from "../../src/theme/theme";
+import { themeReducer, initialState } from "../../src/reducers/themeReducer";
+import { DispatchContext } from "../../src/context/DispatchContext";
+import Layout from "../../src/components/Layout";
 
-import ParticlesEffect from "../../components/Particles";
+import ParticlesEffect from "../../src/components/Particles";
 
 export default function TopLayout(props) {
   const [state, dispatch] = React.useReducer(themeReducer, initialState);
@@ -19,6 +20,22 @@ export default function TopLayout(props) {
         primary: initialTheme.palette.primary,
         secondary: initialTheme.palette.secondary,
         type: darkMode ? "dark" : "light",
+      },
+      overrides: {
+        MuiCssBaseline: {
+          "@global": {
+            "*::-webkit-scrollbar": {
+              width: "0.4em",
+            },
+            "*::-webkit-scrollbar-track": {
+              "-webkit-box-shadow": "inset 0 0 6px rgba(0,0,0,0.00)",
+            },
+            "*::-webkit-scrollbar-thumb": {
+              backgroundColor: "rgba(0,0,0,.1)",
+              outline: "1px solid slategrey",
+            },
+          },
+        },
       },
     });
   }, [darkMode]);
@@ -40,10 +57,10 @@ export default function TopLayout(props) {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <DispatchContext.Provider value={dispatch}>
-          {props.children}
+          <Layout>{props.children}</Layout>
         </DispatchContext.Provider>
+        <ParticlesEffect />
       </ThemeProvider>
-      <ParticlesEffect />
     </React.Fragment>
   );
 }
