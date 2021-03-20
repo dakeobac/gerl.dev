@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import WebIcon from "@material-ui/icons/Web";
 import { object, string, number, boolean, date } from "yup";
-import "yup-phone";
+import "yup-phoneNumber";
 import { CheckboxWithLabel } from "formik-material-ui";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Form, Formik, Field, ErrorMessage } from "formik";
@@ -23,7 +23,7 @@ const initialValues = {
   firstName: "",
   lastName: "",
   email: "",
-  phone: "",
+  phoneNumber: "",
   pages: 1,
   designAndBranding: false,
   copywriting: false,
@@ -33,7 +33,7 @@ const initialValues = {
   shop: false,
   data: false,
   call: false,
-  date: new Date(),
+  dateAndTime: new Date(),
 };
 
 const encode = (data) => {
@@ -102,15 +102,15 @@ const EstimateCalc = () => {
             .min(2)
             .max(25),
           email: string().required("Please enter your email address"),
-          phone: string()
-            .phone("DE", false, "Please enter a valid phone number")
-            .required("Please enter a phone number"),
+          phoneNumber: string()
+            .phoneNumber("DE", false, "Please enter a valid phone number number")
+            .required("Please enter a phone number number"),
           pages: number()
             .required("Select a minimum of at least one page")
             .min(1)
             .max(100),
           call: boolean(),
-          date: date().nullable(),
+          dateAndTime: date().nullable(),
           data: boolean().oneOf(
             [true],
             "Please confirm that you allow me to contact you with the data you provided"
