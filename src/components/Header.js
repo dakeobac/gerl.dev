@@ -4,10 +4,10 @@ import { Toolbar, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import DarkModeButton from "./DarkModeButton";
 import { Link } from "gatsby-theme-material-ui";
+import useTheme from "@material-ui/core/styles/useTheme";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    zIndex: 2,
     display: "flex",
     flexDirection: "column",
     marginBottom: theme.spacing(2),
@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbarTitle: {
     flex: 1,
-    color: theme.palette.text.primary
   },
   toolbarSecondary: {
     justifyContent: "space-between",
@@ -27,13 +26,11 @@ const useStyles = makeStyles((theme) => ({
   toolbarLink: {
     padding: theme.spacing(1),
     flexShrink: 0,
-    color: theme.palette.text.primary
-
-    
   },
 }));
 
 const Header = () => {
+  const theme = useTheme();
   const classes = useStyles();
   const data = useStaticQuery(graphql`
     query {
@@ -48,11 +45,13 @@ const Header = () => {
   return (
     <header className={classes.root}>
       <Toolbar className={classes.toolbar}>
-        <Link to="/" className={classes.toolbarLink}>
+        <Link to="/" className={classes.toolbarLink} color={theme.palette.type === "dark" ? "secondary" : "primary"} >
           <Typography
             className={classes.toolbarTitle}
             component="h1"
             variant="h4"
+            color="textPrimary"
+            
           >
             {data.site.siteMetadata.title}
           </Typography>
@@ -60,17 +59,17 @@ const Header = () => {
         <DarkModeButton />
       </Toolbar>
       <Toolbar className={classes.toolbarSecondary}>
-        <Link to="/" className={classes.toolbarLink}>
-          <Typography>Home</Typography>
+        <Link to="/" className={classes.toolbarLink} color={theme.palette.type === "dark" ? "secondary" : "primary"}>
+          <Typography color="textPrimary">Home</Typography>
         </Link>
-        <Link to="/about" className={classes.toolbarLink}>
-          <Typography>About</Typography>
+        <Link to="/about" className={classes.toolbarLink} color={theme.palette.type === "dark" ? "secondary" : "primary"}>
+          <Typography color="textPrimary">About</Typography>
         </Link>
-        <Link to="/contact" className={classes.toolbarLink}>
-          <Typography>Contact</Typography>
+        <Link to="/contact" className={classes.toolbarLink} color={theme.palette.type === "dark" ? "secondary" : "primary"}>
+          <Typography color="textPrimary">Contact</Typography>
         </Link>
-        <Link to="/blog" className={classes.toolbarLink}>
-          <Typography>Blog</Typography>
+        <Link to="/blog" className={classes.toolbarLink} color={theme.palette.type === "dark" ? "secondary" : "primary"}>
+          <Typography color="textPrimary">Blog</Typography>
         </Link>
       </Toolbar>
     </header>

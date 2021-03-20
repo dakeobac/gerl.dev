@@ -1,0 +1,58 @@
+import { graphql } from "gatsby";
+import React from "react";
+
+const allPosts = ({ data, pageContext }) => {
+  const { currentPage, numPages } = pageContext;
+  const isFirst = currentPage === 1;
+  const isLast = currentPage === numPages;
+  const prevPage = currentPage - 1 === 1 ? "/" : `/${currentPage - 1}`;
+  const nextPage = `/${currentPage + 1}`;
+
+  const posts = data.allMdx.edges;
+
+  return (
+      <div>
+          {posts.map(post => (
+
+              <div>
+                  {post.node.frontmatter.slug}
+                  {post.node.frontmatter.title}
+                  {post.node.frontmatter.date}
+                  {post.node.frontmatter.author}
+                  {post.node.id}
+                  {post.node.excerpt}
+                  {isFirst}
+                  {isLast}
+                  {prevPage}
+                  {nextPage}
+              </div>
+          ))}
+      </div>
+  )
+};
+
+export default allPosts
+
+export const PageQuery = graphql`
+  query AllBlogPosts($skip: Int!, $limit: Int!) {
+    allMdx(
+      sort: { fields: frontmatter___date, order: DESC }
+      filter: { fileAbsolutePath: { regex: "/posts/" } }
+      limit: $limit
+      skip: $skip
+    ) {
+      edges {
+        node {
+          frontmatter {
+            date(fromNow: true)
+            title
+            slug
+            author
+          }
+          id
+          excerpt(truncate: true)
+        }
+      }
+    }
+  }
+`;

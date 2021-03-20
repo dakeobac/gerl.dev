@@ -10,7 +10,7 @@ function DarkModeButton(props) {
   const _toggleDarkMode = useToggleDarkMode();
   
   return (
-    <IconButton onClick={_toggleDarkMode} {...props}>
+    <IconButton onClick={_toggleDarkMode} {...props} color={paletteType=== "dark" ? "secondary" : "primary"}>
       {paletteType === 'dark' ? <Brightness5  /> : <Brightness4  />}
     </IconButton>
   );

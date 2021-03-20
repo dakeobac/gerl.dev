@@ -20,7 +20,7 @@ const Copyright = () => {
         Created by {data.site.siteMetadata.author}.
       </Typography>
       <Typography style={{ textAlign: "center" }} variant="body2">
-        <Link to="/" color="text">
+        <Link to="/" color="textPrimary">
           {data.site.siteMetadata.title}
         </Link>
         {" © "}

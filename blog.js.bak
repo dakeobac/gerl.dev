@@ -33,7 +33,7 @@ const BlogPage = () => {
             frontmatter {
               date(fromNow: true)
               title
-              path
+              slug
             }
             id
             excerpt(truncate: true)
@@ -44,9 +44,9 @@ const BlogPage = () => {
   `);
   return (
     <>
-      {data.allMdx.edges.map(({ node }, id) => (
-        <Card elevation={3} className={classes.root}>
-          <Link to={node.frontmatter.path} component={CardActionArea}>
+      {data.allMdx.edges.map(({ node }, index) => (
+        <Card elevation={3} className={classes.root} key={index}>
+          <Link to={`${node.frontmatter.slug}`} component={CardActionArea}>
             <CardContent>
               <Typography
                 className={classes.title}
@@ -64,7 +64,7 @@ const BlogPage = () => {
             </CardContent>
           </Link>
           <CardActions>
-            <Button size="small" to={node.frontmatter.path}>
+            <Button size="small" to={`${node.frontmatter.slug}`}>
               Read more...
             </Button>
           </CardActions>
