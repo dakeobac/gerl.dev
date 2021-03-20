@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import WebIcon from "@material-ui/icons/Web";
 import { object, string, number, boolean, date } from "yup";
-import "yup-phoneNumber";
+import "yup-phone";
 import { CheckboxWithLabel } from "formik-material-ui";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Form, Formik, Field, ErrorMessage } from "formik";
