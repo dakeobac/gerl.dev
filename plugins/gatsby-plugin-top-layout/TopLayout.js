@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+//import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import initialTheme from "../../src/theme/theme";
 import { themeReducer, initialState } from "../../src/reducers/themeReducer";
