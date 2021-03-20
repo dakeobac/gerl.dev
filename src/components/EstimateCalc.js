@@ -145,6 +145,8 @@ const EstimateCalc = () => {
             data-netlify-honeypot="bot-field"
             name="leads"
           >
+            <Field type="hidden" name="form-name" />
+            <Field type="hidden" name="bot-field" />
             <Box>
               <FormLabel component="legend">Personal details</FormLabel>
               <FormGroup>
