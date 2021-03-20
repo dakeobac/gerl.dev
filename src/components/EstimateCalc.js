@@ -20,6 +20,8 @@ import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 
 const initialValues = {
+  botField: "",
+  formName: "leads",
   firstName: "",
   lastName: "",
   email: "",
@@ -138,7 +140,11 @@ const EstimateCalc = () => {
         }}
       >
         {({ values, errors, touched, isSubmitting, setFieldValue }) => (
-          <Form name="leads" data-netlify={true}>
+          <Form
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            name="leads"
+          >
             <Box>
               <FormLabel component="legend">Personal details</FormLabel>
               <FormGroup>
@@ -283,9 +289,7 @@ const EstimateCalc = () => {
                 variant="outlined"
                 label="Your message"
                 margin="normal"
-                color={
-                    theme.palette.type === "dark" ? "secondary" : "primary"
-                  }
+                color={theme.palette.type === "dark" ? "secondary" : "primary"}
               />
             </Box>
             <Box marginTop={3}>
