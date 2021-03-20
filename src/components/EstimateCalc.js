@@ -23,7 +23,7 @@ const initialValues = {
   firstName: "",
   lastName: "",
   email: "",
-  phoneNumber: "",
+  phone: "",
   pages: 1,
   designAndBranding: false,
   copywriting: false,
@@ -33,7 +33,7 @@ const initialValues = {
   shop: false,
   data: false,
   call: false,
-  dateAndTime: new Date(),
+  date: new Date(),
 };
 
 const encode = (data) => {
@@ -102,15 +102,15 @@ const EstimateCalc = () => {
             .min(2)
             .max(25),
           email: string().required("Please enter your email address"),
-          phoneNumber: string()
-            .phoneNumber("DE", false, "Please enter a valid phone number number")
+          phone: string()
+            .phone("DE", false, "Please enter a valid phone number number")
             .required("Please enter a phone number number"),
           pages: number()
             .required("Select a minimum of at least one page")
             .min(1)
             .max(100),
           call: boolean(),
-          dateAndTime: date().nullable(),
+          date: date().nullable(),
           data: boolean().oneOf(
             [true],
             "Please confirm that you allow me to contact you with the data you provided"

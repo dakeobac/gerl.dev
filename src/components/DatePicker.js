@@ -13,13 +13,13 @@ const DatePicker = ({values, setFieldValue} ) => {
   return (
     <Box>
       <Field
-        name="phoneNumber"
+        name="phone"
         type="tel"
         style={{ width: "100%" }}
         as={MuiPhoneNumber}
         label="Phone number"
         defaultCountry={"de"}
-        onChange={(e) => setFieldValue("phoneNumber", e)}
+        onChange={(e) => setFieldValue("phone", e)}
         autoFormat
         disableAreaCodes
         variant="outlined"
@@ -33,9 +33,9 @@ const DatePicker = ({values, setFieldValue} ) => {
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <DateTimePicker
           value={values.date}
-          type="datetime-local"
           disablePast
-          onChange={(e) => setFieldValue("dateAndTime", e)}
+          type="datetime-local"
+          onChange={(e) => setFieldValue("date", e)}
           label="When can i call you?"
           showTodayButton
           fullWidth
