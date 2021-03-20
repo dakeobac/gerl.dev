@@ -6,9 +6,9 @@ import {
   MenuItem,
   FormGroup,
   FormLabel,
+  Button,
   Avatar,
 } from "@material-ui/core";
-import { Button } from "gatsby-theme-material-ui";
 import WebIcon from "@material-ui/icons/Web";
 import MuiPhoneNumber from "material-ui-phone-number";
 import { object, string, number, boolean, date } from "yup";
