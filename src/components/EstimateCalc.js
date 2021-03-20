@@ -124,7 +124,7 @@ const EstimateCalc = () => {
           fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode({ "form-name": "lead", ...values }),
+            body: encode({ "form-name": "leads", ...values }),
           })
             .then(() => {
               formikHelpers.resetForm();
@@ -138,7 +138,7 @@ const EstimateCalc = () => {
         }}
       >
         {({ values, errors, touched, isSubmitting, setFieldValue }) => (
-          <Form name="lead" data-netlify={true}>
+          <Form name="leads" data-netlify={true}>
             <Box>
               <FormLabel component="legend">Personal details</FormLabel>
               <FormGroup>
