@@ -1,14 +1,10 @@
 import React from "react";
-import loadable from "@loadable/component";
-
-const LoadableEstimateCalc = loadable(() =>
-  import("../components/EstimateCalc")
-);
+import EstimateCalc from "../components/EstimateCalc";
 
 const IndexPage = () => {
   return (
     <>
-      <LoadableEstimateCalc />
+      <EstimateCalc/>
     </>
   );
 };

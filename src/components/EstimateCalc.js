@@ -10,18 +10,16 @@ import {
   Avatar,
 } from "@material-ui/core";
 import WebIcon from "@material-ui/icons/Web";
-import MuiPhoneNumber from "material-ui-phone-number";
 import { object, string, number, boolean, date } from "yup";
 import "yup-phone";
 import { CheckboxWithLabel } from "formik-material-ui";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Form, Formik, Field, ErrorMessage } from "formik";
-import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-import DateFnsUtils from "@date-io/date-fns";
+import loadable from "@loadable/component";
+
+const LoadableDatePicker = loadable(() => import("./DatePicker"));
 
 const initialValues = {
-  botField: "",
-  formName: "leads",
   firstName: "",
   lastName: "",
   email: "",
@@ -140,13 +138,7 @@ const EstimateCalc = () => {
         }}
       >
         {({ values, errors, touched, isSubmitting, setFieldValue }) => (
-          <Form
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            name="leads"
-          >
-            <Field type="hidden" name="form-name" />
-            <Field type="hidden" name="bot-field" />
+          <Form name="leads" data-netlify={true}>
             <Box>
               <FormLabel component="legend">Personal details</FormLabel>
               <FormGroup>
@@ -311,48 +303,7 @@ const EstimateCalc = () => {
                   }
                 />
 
-                {values.call && (
-                  <Box>
-                    <Field
-                      name="phone"
-                      type="tel"
-                      style={{ width: "100%" }}
-                      as={MuiPhoneNumber}
-                      label="Phone number"
-                      defaultCountry={"de"}
-                      onChange={(e) => setFieldValue("phone", e)}
-                      autoFormat
-                      disableAreaCodes
-                      variant="outlined"
-                      color={
-                        theme.palette.type === "dark" ? "secondary" : "primary"
-                      }
-                      margin="normal"
-                    />
-                    <div>
-                      <ErrorMessage name="phone" />
-                      {/* Material Ui Date Picker */}
-                    </div>
-                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                      <DateTimePicker
-                        value={values.date}
-                        disablePast
-                        onChange={(e) => setFieldValue("date", e)}
-                        label="When can i call you?"
-                        showTodayButton
-                        fullWidth
-                        autoOk
-                        inputVariant="outlined"
-                        margin="normal"
-                        color={
-                          theme.palette.type === "dark"
-                            ? "secondary"
-                            : "primary"
-                        }
-                      />
-                    </MuiPickersUtilsProvider>
-                  </Box>
-                )}
+                {values.call && <LoadableDatePicker values={values} setFieldValue={setFieldValue} />}
               </FormGroup>
             </Box>
             <FormGroup>
