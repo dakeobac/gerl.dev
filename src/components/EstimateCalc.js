@@ -16,14 +16,15 @@ import { CheckboxWithLabel } from "formik-material-ui";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import loadable from "@loadable/component";
+import {navigate } from 'gatsby'
 
-const LoadableDatePicker = loadable(() => import("./DatePicker"));
+const LoadableCallOptions = loadable(() => import("./CallOptions"));
 
 const initialValues = {
   firstName: "",
   lastName: "",
   email: "",
-  phone: "",
+  phoneNumber: "",
   pages: 1,
   designAndBranding: false,
   copywriting: false,
@@ -33,7 +34,7 @@ const initialValues = {
   shop: false,
   data: false,
   call: false,
-  date: new Date(),
+  dateAndTime: new Date(),
 };
 
 const encode = (data) => {
@@ -102,7 +103,7 @@ const EstimateCalc = () => {
             .min(2)
             .max(25),
           email: string().required("Please enter your email address"),
-          phone: string()
+          phoneNumber: string()
             .phone("DE", false, "Please enter a valid phone number number")
             .required("Please enter a phone number number"),
           pages: number()
@@ -110,7 +111,7 @@ const EstimateCalc = () => {
             .min(1)
             .max(100),
           call: boolean(),
-          date: date().nullable(),
+          dateAndTime: date().nullable(),
           data: boolean().oneOf(
             [true],
             "Please confirm that you allow me to contact you with the data you provided"
@@ -134,6 +135,7 @@ const EstimateCalc = () => {
             })
             .finally(() => {
               formikHelpers.setSubmitting(false);
+              navigate("/")
             });
         }}
       >
@@ -303,7 +305,7 @@ const EstimateCalc = () => {
                   }
                 />
 
-                {values.call && <LoadableDatePicker values={values} setFieldValue={setFieldValue} />}
+                {values.call && <LoadableCallOptions values={values} setFieldValue={setFieldValue} />}
               </FormGroup>
             </Box>
             <FormGroup>
@@ -347,9 +349,9 @@ const EstimateCalc = () => {
                 Submit
               </Button>
             </Box>
-            {/* <pre>{JSON.stringify(values, null, 2)} </pre>
+            <pre>{JSON.stringify(values, null, 2)} </pre>
             <pre>{JSON.stringify(touched, null, 2)} </pre>
-            <pre>{JSON.stringify(errors, null, 2)} </pre> */}
+            <pre>{JSON.stringify(errors, null, 2)} </pre>
           </Form>
         )}
       </Formik>
