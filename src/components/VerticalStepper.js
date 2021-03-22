@@ -52,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginTop: theme.spacing(1),
     marginRight: theme.spacing(1),
+    width: "auto",
   },
   actionsContainer: {
     marginBottom: theme.spacing(2),
@@ -474,6 +475,7 @@ export default function VerticalLinearStepper() {
       >
         {({ values, errors, touched, isSubmitting, setFieldValue }) => (
           <Form name="leads" data-netlify={true}>
+            <input type="hidden" name="form-name" value="leads" />
             <Stepper activeStep={activeStep} orientation="vertical">
               {steps.map((label, index) => (
                 <Step key={label}>
@@ -503,7 +505,7 @@ export default function VerticalLinearStepper() {
                       )}
                     </Typography>
                     <div className={classes.actionsContainer}>
-                      <div className={classes.buttonContainer}>
+                      <div>
                         <Button
                           disabled={activeStep === 0}
                           onClick={handleBack}
@@ -518,7 +520,6 @@ export default function VerticalLinearStepper() {
                         </Button>
                         <Button
                           variant="contained"
-                          color="primary"
                           onClick={handleNext}
                           className={classes.button}
                           color={
@@ -590,7 +591,7 @@ export default function VerticalLinearStepper() {
                   </Box>
                 </FormGroup>
                 <Box marginTop={3}>
-                  <Typography component="p" variant="body1" gutterBottom>
+                  <Typography component="h4" variant="h4" gutterBottom>
                     To send a request now click submit
                   </Typography>
                 </Box>

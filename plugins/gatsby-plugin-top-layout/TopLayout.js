@@ -65,8 +65,8 @@ export default function TopLayout(props) {
 
           {props.children}
           </Layout>
-        </DispatchContext.Provider>
         <ParticlesEffect />
+        </DispatchContext.Provider>
       </ThemeProvider>
     </React.Fragment>
   );
