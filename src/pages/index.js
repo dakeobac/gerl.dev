@@ -1,10 +1,12 @@
 import React from "react";
-import EstimateCalc from "../components/EstimateCalc";
+import VerticalLinearStepper from "../components/VerticalStepper";
+// import EstimateCalc from "../components/EstimateCalc";
 
 const IndexPage = () => {
   return (
     <>
-      <EstimateCalc/>
+      {/* <EstimateCalc/> */}
+      <VerticalLinearStepper/>
     </>
   );
 };
